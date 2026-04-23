@@ -7,10 +7,9 @@ import java.sql.SQLException;
 public class DBConnection {
     
     // YOUR ACTUAL MYSQL CREDENTIALS
-    private static final String URL = "jdbc:mysql://localhost:3306/ecommerce";
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "root123";
-    
+    private static final String URL = System.getenv("MYSQL_URL");
+private static final String USERNAME = System.getenv("MYSQLUSER");
+private static final String PASSWORD = System.getenv("MYSQLPASSWORD");
     private static Connection connection = null;
     
     public static Connection getConnection() {
