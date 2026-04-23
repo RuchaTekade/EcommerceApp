@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <title>Products</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<h1 class="title">Our Products</h1>
+
+<div class="top-bar">
+    <span id="cartCount">Cart: 0</span>
+    <a href="cart.html" class="cart-link">Go to Cart</a>
+</div>
+
+<!-- CATEGORY BUTTONS -->
+<div class="navbar">
+    <button onclick="filterProducts('all')">All</button>
+    <button onclick="filterProducts('men')">Men</button>
+    <button onclick="filterProducts('women')">Women</button>
+</div>
+
+<div class="product-container">
+
+    <div class="card" data-category="men">
+    <img src="https://www.urbanofashion.com/cdn/shop/files/shirtsmocregfs-06-blue.jpg?v=1737733758" 
+    style="width: 200px; height: 200px; object-fit: cover;">
+    <h3>Men Shirt</h3>
+    <p>₹ 500.00</p>  <!-- Uniform format -->
+    <button onclick="addToCart('Men Shirt', 500)">Add to Cart</button>
+</div>
+
+<div class="card" data-category="women">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0RDUjrxS4uIEMN0_jtBieLQhmIx-u2paE9A&s">
+    <h3>Women Dress</h3>
+    <p>₹ 800.00</p>  <!-- Uniform format -->
+    <button onclick="addToCart('Women Dress', 800)">Add to Cart</button>
+</div>
+
+<div class="card" data-category="men">
+    <img src="https://img.kwcdn.com/product/fancy/1cb2ee6c-f621-4b6b-a1e0-1b0e99ed3641.jpg?imageMogr2/auto-orient%7CimageView2/2/w/800/q/70/format/webp">
+    <h3>Men Shoes</h3>
+    <p>₹ 1,200.00</p>  <!-- Uniform format with comma -->
+    <button onclick="addToCart('Men Shoes', 1200)">Add to Cart</button>
+</div>
+<div class="card" data-category="men">
+    <img src="https://m.media-amazon.com/images/I/811HD3-CAxL._AC_UY1100_.jpg">
+    <h3>Men Jeans</h3>
+    <p>Rs. 999.00</p>
+    <button onclick="addToCart('Men Jeans', 999)">Add to Cart</button>
+</div>
+
+<div class="card" data-category="women">
+    <img src="https://i.pinimg.com/736x/8c/32/38/8c323896843896454db27fe44076cb40.jpg">
+    <h3>Women Handbag</h3>
+    <p>Rs. 1499.00</p>
+    <button onclick="addToCart('Women Handbag', 1499)">Add to Cart</button>
+</div>
+
+<div class="card" data-category="men">
+    <img src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/watch-card-40-s11-202509_GEO_IN_FMT_WHH?wid=508&hei=472&fmt=jpeg&qlt=90&.v=RGt6QnVpU0piVDZnRHZnWmNNbHB2K0dXbkZ3bnI5S1V4Y3dWbzdFMEYrYnNPK21NTmFtSkpWQ3ZBMFB1WTlMTzltWDc4aXJHcmduU0dwUHg2UmFtWXoyTkNERHVqSk12b05selRrakVBT3ZFcXo2Y2lWRzhkbVFKT0gvRFZBUHY">
+    <h3>Men Watch</h3>
+    <p>Rs. 1999.00</p>
+    <button onclick="addToCart('Men Watch', 1999)">Add to Cart</button>
+</div>
+
+<div class="card" data-category="women">
+    <img src="https://stylestryproductionwls47sou4z.cdn.e2enetworks.net/images/products/medium/10625467598b09f0b9ee2b02300fa02aac6b84d8.webp">
+    <h3>Women Heels</h3>
+    <p>Rs. 1299.00</p>
+    <button onclick="addToCart('Women Heels', 1299)">Add to Cart</button>
+</div>
+
+<div class="card" data-category="men">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaub1i1o-VqRoYrACUw2AS66YmnsV-_52zNA&s">
+    <h3>Men Jacket</h3>
+    <p>Rs. 2499.00</p>
+    <button onclick="addToCart('Men Jacket', 2499)">Add to Cart</button>
+</div>
+
+<div class="card" data-category="women">
+    <img src="https://anayadesignerstudio.com/cdn/shop/files/Trendy-Kerala-Kasavu-Half-Saree-For-Wedding.jpg?v=1714617671&width=1946">
+    <h3>Women Saree</h3>
+    <p>Rs. 1999.00</p>
+    <button onclick="addToCart('Women Saree', 1999)">Add to Cart</button>
+</div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
