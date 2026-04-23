@@ -18,15 +18,13 @@ public class DBConnection {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-                System.out.println("✅ Connected to Railway MySQL database!");
+                System.out.println("✅ Connected to Railway MySQL!");
                 
                 // Create users table automatically
                 createUsersTable();
                 
             } catch (Exception e) {
-                System.out.println("❌ Database connection failed!");
-                System.out.println("Error: " + e.getMessage());
-                e.printStackTrace();
+                System.out.println("❌ DB connection failed: " + e.getMessage());
             }
         }
         return connection;
@@ -38,24 +36,11 @@ public class DBConnection {
                          "id INT PRIMARY KEY AUTO_INCREMENT," +
                          "name VARCHAR(100) NOT NULL," +
                          "email VARCHAR(100) NOT NULL," +
-                         "password VARCHAR(100) NOT NULL" +
-                         ")";
+                         "password VARCHAR(100) NOT NULL)";
             connection.createStatement().execute(sql);
             System.out.println("✅ Users table ready!");
         } catch (SQLException e) {
-            System.out.println("⚠️ Could not create users table: " + e.getMessage());
-        }
-    }
-    
-    public static void closeConnection() {
-        if (connection != null) {
-            try {
-                connection.close();
-                connection = null;
-                System.out.println("Database connection closed.");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            System.out.println("⚠️ Table error: " + e.getMessage());
         }
     }
 }
