@@ -1,19 +1,17 @@
-# Use the official Tomcat image with Java 8
 FROM tomcat:9.0-jdk8-openjdk
 
-# Remove the old, empty webapps directory
-RUN rm -rf /usr/local/tomcat/webapps
+# Remove default webapps
+RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Rename webapps.dist (which has the default files) to webapps
-# This is the directory Tomcat actually uses to serve files [citation:8]
-RUN mv /usr/local/tomcat/webapps.dist /usr/local/tomcat/webapps
+# Copy your entire webapp folder to ROOT
+COPY src/main/webapp /usr/local/tomcat/webapps/ROOT/
 
-# Now, copy your project's webapp folder to the ROOT directory.
-# It will now be in the correct place where Tomcat expects it.
-COPY src/main/webapp /usr/local/tomcat/webapps/ROOT
+# Copy compiled Java classes (if they exist)
+COPY src/main/java /usr/local/tomcat/webapps/ROOT/WEB-INF/classes/
 
-# Tell Render which port to use
+# Ensure proper permissions
+RUN chmod -R 755 /usr/local/tomcat/webapps/ROOT
+
 EXPOSE 8080
 
-# Start the Tomcat server
 CMD ["catalina.sh", "run"]
