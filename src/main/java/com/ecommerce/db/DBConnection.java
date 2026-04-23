@@ -6,10 +6,10 @@ import java.sql.SQLException;
 
 public class DBConnection {
     
-    // Railway automatically injects these environment variables!
-    private static final String URL = System.getenv("MYSQL_URL");
-    private static final String USERNAME = System.getenv("MYSQLUSER");
-    private static final String PASSWORD = System.getenv("MYSQLPASSWORD");
+    // YOUR ACTUAL MYSQL CREDENTIALS
+    private static final String URL = "jdbc:mysql://localhost:3306/ecommerce";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "root123";
     
     private static Connection connection = null;
     
@@ -18,13 +18,14 @@ public class DBConnection {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-                System.out.println("✅ Connected to Railway MySQL!");
+                System.out.println("✅ Database connected!");
                 
-                // Create users table automatically
+                // Create users table if not exists
                 createUsersTable();
                 
             } catch (Exception e) {
-                System.out.println("❌ DB connection failed: " + e.getMessage());
+                System.out.println("❌ Database connection failed!");
+                e.printStackTrace();
             }
         }
         return connection;
@@ -41,6 +42,17 @@ public class DBConnection {
             System.out.println("✅ Users table ready!");
         } catch (SQLException e) {
             System.out.println("⚠️ Table error: " + e.getMessage());
+        }
+    }
+    
+    public static void closeConnection() {
+        if (connection != null) {
+            try {
+                connection.close();
+                connection = null;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
